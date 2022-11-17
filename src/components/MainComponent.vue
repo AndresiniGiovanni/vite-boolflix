@@ -1,6 +1,6 @@
 <template>
   <section class="container-fluid p-5">
-    <h2>movies</h2>
+    <h2>{{ title }}</h2>
 
     <div class="row">
       <div
@@ -21,19 +21,25 @@ export default {
   name: "MainComponent",
   props: {
     items: Array,
+    title: String,
   },
   components: {
     CardsComponent,
   },
   data() {
-    return {
-      
-    }
+    return {};
   },
 };
 </script>
 
 <style lang="scss" scoped>
+section {
+  overflow: hidden;
+  .row {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+  }
+}
 h2 {
   text-transform: capitalize;
 }

@@ -4,7 +4,8 @@
       <HeaderComponent />
     </header>
     <main>
-      <MainComponent :items="store.movieList" />
+      <MainComponent title="Movies" :items="store.movieList" />
+      <MainComponent title="Tv Series" :items="store.tvList" />
     </main>
   </section>
 </template>
@@ -20,22 +21,31 @@ export default {
   components: { HeaderComponent, MainComponent, CardsComponent },
   data() {
     return {
-      store
+      store,
     };
   },
   watch: {
     "store.params.query"(newVal, oldVal) {
       if (newVal !== oldVal) {
         this.getMovie();
+        this.getSeries();
       }
     },
   },
   methods: {
     getMovie() {
-      const apiurl = store.apiURL + store.endPoint;
+      const apiurl = store.apiURL + store.endPoint.movie;
       const params = store.params;
       axios.get(apiurl, { params }).then((res) => {
         store.movieList = res.data.results;
+      });
+    },
+
+    getSeries() {
+      const apiurl = store.apiURL + store.endPoint.tv;
+      const params = store.params;
+      axios.get(apiurl, { params }).then((res) => {
+        store.tvList = res.data.results;
       });
     },
   },
