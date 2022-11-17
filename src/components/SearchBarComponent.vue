@@ -1,19 +1,19 @@
 <template>
   <div class="d-flex align-items-center">
     <div class="input-group input-group-md">
-      <form action="" class="d-flex" @submit.prevent="searchMovies">
+      <form action="" class="d-flex" @submit.prevent="search">
         <input
           type="text"
           class="form-control"
           placeholder="Titoli, Persone, Generi"
-          v-model.trim="searchMovie.title"
+          v-model.trim="text"
           @keyup.enter="searchMovie"
         />
-        <button class="btn btn-primary ms-1">Search</button>
+        <button class="btn btn-danger ms-1">Cerca</button>
       </form>
     </div>
 
-    <span class="ms-5 me-4">
+    <span class="ms-4 me-4">
       <a href=""><i class="fa-regular fa-bell"></i></a>
     </span>
   </div>
@@ -25,25 +25,21 @@ export default {
   name: "SearchBarComponent",
   data() {
     return {
-      store,
-      searchMovie: {
-        title: "",
-        original_title: "",
-        original_language: "",
-      },
+      text: "",
     };
   },
   methods: {
-    searchMovies() {
-      console.log(this.searchMovie);
-      console.log(this.searchMovies);
-      const searchMovie = { ...this.searchMovie };
-      store.params = { ...searchMovie };
-      store.getMovie();
-      console.log(store.movieList);
+    search() {
+      console.log(this.text);
+      store.params.query = this.text;
     },
   },
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+a {
+  color: white;
+  font-size: 22px;
+}
+</style>

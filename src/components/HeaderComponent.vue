@@ -1,6 +1,6 @@
 <template>
   <section id="header" class="d-flex justify-content-between">
-    <h1>Netflix logo</h1>
+    <h1 class="text-uppercase ms-3 mt-1 ">Boolflix</h1>
     <SearchBarComponent />
   </section>
 </template>
@@ -16,18 +16,18 @@ export default { components: { SearchBarComponent } };
 
 #header {
   width: 100%;
-  position: fixed;
+  
+  background-color: rgba(0, 0, 0, 0.8);
+  height: 60px;
 
   h1 {
     color: $netflixred;
+    font-weight: 600;
   }
   select {
     width: 100%;
   }
 
-  a {
-    color: black;
-    font-size: 22px;
-  }
+  
 }
 </style>
