@@ -1,9 +1,16 @@
 <template>
   <div class="media text-center">
+    <img :src="imgPath + item.poster_path" alt="item.title" />
     <h4>{{ item.original_title }}</h4>
     <div>{{ item.title }}</div>
     <div>{{ item.vote_average }}</div>
-    <div>{{ item.original_language }}</div>
+    <div class="flag" v-if="availableFlag.includes(item.original_language)">
+      <img
+        :src="'/images/' + item.original_language + '.png'"
+        :alt="item.original_language"
+      />
+    </div>
+    <div v-else>{{ item.original_language }}</div>
   </div>
 </template>
 
@@ -14,9 +21,8 @@ export default {
   },
   data() {
     return {
-      availableFlag:[
-        'de', 'en', 'es', 'fr', 'it'
-      ]
+      availableFlag: ["de", "en", "es", "fr", "it"],
+      imgPath: "https://image.tmdb.org/t/p/w342",
     };
   },
 };
@@ -26,8 +32,13 @@ export default {
 h4 {
   text-transform: capitalize;
 }
+.flag {
+  img {
+    width: 50px;
+  }
+}
 img {
-  width: 100%;
+  width: 60%;
   box-shadow: 0 0 6px 3px rgba($color: #000000, $alpha: 0.15);
 }
 </style>
