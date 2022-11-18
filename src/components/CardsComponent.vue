@@ -68,22 +68,22 @@ h4 {
   border-radius: 20px;
 
   .original-title {
-    top: 2rem;
+    top: 1.3rem;
     font-size: 23px;
     font-weight: 600;
   }
   .mytitle {
-    top: 7rem;
+    top: 5rem;
   }
   .flag {
-    top: 11.5rem;
+    top: 8rem;
 
     img {
       width: 30px;
     }
   }
   .mystar {
-    top: 14rem;
+    top: 11rem;
     left: 0rem;
   }
   .original-title,
@@ -94,11 +94,11 @@ h4 {
     display: none;
   }
   .overview {
-    font-size: 11px;
+    font-size: 12px;
     bottom: 5px;
     font-weight: 600;
     text-align: left;
-    line-height: 0.7rem;
+    line-height: 0.8rem;
   }
 }
 
@@ -106,7 +106,7 @@ h4 {
   transition: 0.5s;
   .poster {
     transition: 1s;
-    filter: blur(10px);
+    filter:brightness(10%);
   }
 
   .original-title,

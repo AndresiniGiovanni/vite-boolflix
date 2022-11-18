@@ -1,7 +1,7 @@
 <template>
   <div class="d-flex align-items-center">
     <div class="input-group input-group-md">
-      <form action="" class="d-flex" @submit.prevent="search">
+      <form action="" class="d-flex mt-3" @submit.prevent="search">
         <input
           type="text"
           class="form-control"
@@ -13,7 +13,7 @@
       </form>
     </div>
 
-    <span class="ms-4 me-4">
+    <span class="ms-4 me-4 mt-3">
       <a href=""><i class="fa-regular fa-bell"></i></a>
     </span>
   </div>
