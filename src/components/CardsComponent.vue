@@ -1,6 +1,7 @@
 <template>
-  <div class="media text-center">
+  <div class="media text-center position-relative  card my-card border-0 w-75 bg-transparent">
     <img
+      class="poster w-100"
       :src="
         item.poster_path
           ? imgPath + item.poster_path
@@ -8,22 +9,27 @@
       "
       alt="item.title || item.name"
     />
-    <h4>{{ item.original_title || item.original_name }}</h4>
-    <div>{{ item.title || item.name }}</div>
-    <div>
+    <h4 class="position-absolute original-title">
+      {{ item.original_title || item.original_name }}
+    </h4>
+    <div class="position-absolute mytitle">{{ item.title || item.name }}</div>
+    <div class="position-absolute mystar">
       <span
         class="fa-star"
         :class="n <= star ? 'fa-solid' : 'fa-regular'"
         v-for="n in 5"
       ></span>
     </div>
-    <div class="flag" v-if="availableFlag.includes(item.original_language)">
+    <div
+      class="flag position-absolute"
+      v-if="availableFlag.includes(item.original_language)"
+    >
       <img
         :src="'/images/' + item.original_language + '.png'"
         :alt="item.original_language"
       />
     </div>
-    <div v-else>{{ item.original_language }}</div>
+    <div class="position-absolute flag" v-else>{{ item.original_language }}</div>
   </div>
 </template>
 
@@ -50,9 +56,49 @@ export default {
 h4 {
   text-transform: capitalize;
 }
-.flag {
-  img {
-    width: 50px;
+
+.my-card {
+  color: white;
+ 
+  .original-title {
+    top: 2rem;
+    font-size: 23px;
+    font-weight: 600;
+  }
+  .mytitle {
+    top: 8rem;
+  }
+  .flag {
+    top: 11.5rem;
+
+    img {
+      width: 30px;
+    }
+  }
+  .mystar {
+    top: 14rem;
+    left: 0rem;
+  }
+  .original-title,
+  .mytitle,
+  .flag,
+  .mystar {
+    display: none;
+  }
+}
+
+.my-card:hover {
+  transition: 0.5s;
+  .poster {
+    transition: 1s;
+    filter: blur(10px);
+  }
+
+  .original-title,
+  .mytitle,
+  .flag,
+  .mystar {
+    display: block;
   }
 }
 img {
