@@ -4,7 +4,7 @@
 
     <div class="row">
       <div
-        class="col-12 col-sm-6 col-md-3 col-lg-2 mb-5 mt-3"
+        class="col-12 col-sm-6 col-md-3 col-lg-3 mb-5 mt-3"
         v-for="(item, index) in items"
         :key="item.id"
       >

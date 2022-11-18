@@ -1,5 +1,7 @@
 <template>
-  <div class="media text-center position-relative  card my-card border-0 w-75 bg-transparent">
+  <div
+    class="media text-center position-relative card my-card border-0 w-75 bg-transparent"
+  >
     <img
       class="poster w-100"
       :src="
@@ -29,7 +31,10 @@
         :alt="item.original_language"
       />
     </div>
-    <div class="position-absolute flag" v-else>{{ item.original_language }}</div>
+    <div class="position-absolute flag" v-else>
+      {{ item.original_language }}
+    </div>
+    <div class="position-absolute overview">{{ item.overview }}</div>
   </div>
 </template>
 
@@ -59,14 +64,16 @@ h4 {
 
 .my-card {
   color: white;
- 
+  overflow-y: scroll;
+  border-radius: 20px;
+
   .original-title {
     top: 2rem;
     font-size: 23px;
     font-weight: 600;
   }
   .mytitle {
-    top: 8rem;
+    top: 7rem;
   }
   .flag {
     top: 11.5rem;
@@ -82,8 +89,16 @@ h4 {
   .original-title,
   .mytitle,
   .flag,
+  .overview,
   .mystar {
     display: none;
+  }
+  .overview {
+    font-size: 11px;
+    bottom: 5px;
+    font-weight: 600;
+    text-align: left;
+    line-height: 0.7rem;
   }
 }
 
@@ -97,6 +112,7 @@ h4 {
   .original-title,
   .mytitle,
   .flag,
+  .overview,
   .mystar {
     display: block;
   }
